@@ -30,6 +30,3 @@ def main():
     print(f"Wetterdaten in Mongo gespeichert mit ID: {weather_id}")
     print(f"Luftqualitätsdaten in Mongo gespeichert mit ID: {air_quality_id}")
 
-
-if __name__ == "__main__":
-    main()
