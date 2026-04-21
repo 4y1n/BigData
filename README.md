@@ -51,8 +51,19 @@ MONGO_URI=mongodb://localhost:27017/
 MONGO_DB=big_data_weather_airpollution
 
 WEATHER_API_KEY=
+WEATHER_USE_MOCK=true
+WEATHER_LAT=48.2082
+WEATHER_LON=16.3738
+WEATHER_UNITS=metric
+WEATHER_LANG=de
+WEATHER_EXCLUDE=minutely,alerts
 AIR_QUALITY_API_KEY=
+OPENAQ_LOCATION_ID=8118
 ```
+
+Für die Wetterdaten wird OpenWeather One Call 3.0 verwendet. Solange die Freischaltung fehlt, ist standardmaessig `WEATHER_USE_MOCK=true` aktiv und es werden kleine Testdaten fuer Wien geliefert. Sobald der echte Zugang verfuegbar ist, setze `WEATHER_USE_MOCK=false` und trage deinen OpenWeather-Key in `WEATHER_API_KEY` ein. Koordinaten und Ausgabe kannst du ueber `WEATHER_LAT`, `WEATHER_LON`, `WEATHER_UNITS`, `WEATHER_LANG` und `WEATHER_EXCLUDE` anpassen.
+
+Für die Luftqualitätsdaten wird OpenAQ v3 verwendet. Trage dafür deinen OpenAQ-API-Key in `AIR_QUALITY_API_KEY` ein. Standardmäßig wird die Location `8118` abgefragt; bei Bedarf kannst du sie über `OPENAQ_LOCATION_ID` ändern.
 
 ### MongoDB mit Docker starten
 
