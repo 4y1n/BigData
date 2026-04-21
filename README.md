@@ -13,241 +13,89 @@ Projekt zum Sammeln, Speichern und späteren Auswerten von Wetter- und Luftquali
 
 ## Setup
 
-```bash
-pip install -r requirements.txt
-__________________________________________________
-Genauere Anweisungen zur Einrichtung:
-
-big-data-weather-airpollution
-
-Projekt zum Sammeln, Speichern und späteren Auswerten von Wetter- und Luftqualitätsdaten.
-
---------------------------------------------------
-
-PROJEKTÜBERBLICK
-
-Dieses Projekt:
-
-1. Holt Daten aus APIs (Wetter + Luftqualität)
-2. Speichert rohe Daten:
-   - lokal als JSON
-   - in MongoDB
-3. Bereitet Daten später für Analyse auf
-
---------------------------------------------------
-
-PROJEKTSTRUKTUR
-
-big-data-weather-airpollution/
-
-├── data/
-│   ├── raw/
-│   │   ├── weather/
-│   │   └── air_quality/
-│   └── processed/
-│
-├── src/
-│   ├── api/
-│   ├── db/
-│   ├── storage/
-│   └── main.py
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-└── README.md
-
---------------------------------------------------
-
-VORAUSSETZUNGEN
-
-Bitte vorher installieren:
+### Voraussetzungen
 
 - Python 3.10 oder neuer
-- Docker Desktop
+- Docker bzw. Docker Desktop
 - Git
 - optional: DataGrip / DataSpell
 
---------------------------------------------------
+### Python vorbereiten
 
-PYTHON SETUP
-
-1. Projekt klonen
-
-git clone <REPO_URL>
-cd big-data-weather-airpollution
-
---------------------------------------------------
-
-2. Virtuelle Umgebung erstellen
-
-Linux / Mac:
-
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-Windows (PowerShell):
+Unter Windows:
 
+```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-
---------------------------------------------------
-
-3. Abhängigkeiten installieren
-
 pip install -r requirements.txt
+```
 
-requirements.txt:
+### Environment-Datei anlegen
 
-requests
-pymongo
-python-dotenv
+Die Projektdatei `.env` ist absichtlich nicht versioniert. Lege sie aus der Vorlage an:
 
---------------------------------------------------
+```bash
+cp .env.example .env
+```
 
-MONGODB MIT DOCKER STARTEN
+Inhalt der Vorlage:
 
-1. Container starten
-
-Windows PowerShell:
-
-docker run -d ^
-  --name mongodb ^
-  -p 27017:27017 ^
-  -v mongodb_data:/data/db ^
-  mongo:7
-
-Linux / Mac:
-
-docker run -d \
-  --name mongodb \
-  -p 27017:27017 \
-  -v mongodb_data:/data/db \
-  mongo:7
-
---------------------------------------------------
-
-2. Prüfen ob Mongo läuft
-
-docker ps
-
-Es sollte ein Container namens "mongodb" laufen.
-
---------------------------------------------------
-
-ENVIRONMENT-DATEI
-
-Datei ".env" im Projekt-Root erstellen:
-
+```env
 MONGO_URI=mongodb://localhost:27017/
 MONGO_DB=big_data_weather_airpollution
 
 WEATHER_API_KEY=
 AIR_QUALITY_API_KEY=
+```
 
---------------------------------------------------
+### MongoDB mit Docker starten
 
-PROJEKT STARTEN
+Im Repository liegt jetzt eine `docker-compose.yml`, die MongoDB mit persistentem Volume startet:
 
+```bash
+docker compose up -d mongodb
+```
+
+Status prüfen:
+
+```bash
+docker compose ps
+```
+
+MongoDB lauscht danach standardmäßig auf `localhost:27017`.
+
+### Projekt starten
+
+```bash
 python -m src.main
+```
 
---------------------------------------------------
-
-ERWARTETES ERGEBNIS
+## Erwartetes Ergebnis
 
 Nach dem Start:
 
-Lokal:
-- Dateien entstehen in:
-  data/raw/weather/
-  data/raw/air_quality/
+- lokale JSON-Dateien in `data/raw/weather/` und `data/raw/air_quality/`
+- MongoDB-Datenbank `big_data_weather_airpollution`
+- Collections `weather_raw` und `air_quality_raw`
 
-MongoDB:
-- Datenbank: big_data_weather_airpollution
-- Collections:
-  weather_raw
-  air_quality_raw
+Wenn MongoDB nicht läuft, bricht die Anwendung jetzt mit einer klaren Fehlermeldung ab und verweist auf:
 
---------------------------------------------------
+```bash
+docker compose up -d mongodb
+```
 
-MONGODB MIT DATAGRIP VERBINDEN
+## MongoDB mit DataGrip verbinden
 
-1. Neue Datenquelle erstellen:
-   + -> MongoDB
+Connection String:
 
-2. Connection String eintragen:
-
+```text
 mongodb://localhost:27017
+```
 
-3. Falls notwendig:
-   "Download missing driver files" klicken
-
-4. Test Connection:
-   sollte "Success" anzeigen
-
-5. Daten ansehen:
-   Datenbank: big_data_weather_airpollution
-   Collections: weather_raw, air_quality_raw
-
---------------------------------------------------
-
-ARCHITEKTUR
-
-api/       -> Holt Daten von APIs
-storage/   -> Speichert Daten (JSON + Mongo)
-db/        -> MongoDB Verbindung
-main.py    -> Startpunkt
-
---------------------------------------------------
-
-WORKFLOW
-
-1. API wird aufgerufen
-2. Daten werden geholt
-3. Daten werden gespeichert:
-   - JSON (raw)
-   - MongoDB
-4. später: Analyse
-
---------------------------------------------------
-
-TYPISCHE PROBLEME
-
-Mongo läuft nicht:
-docker ps
-
-Verbindung verweigert:
-Mongo-Container läuft nicht
-
-DataGrip zeigt nichts:
-Rechtsklick auf Verbindung -> Refresh
-
-Python Import Fehler:
-
-Falls nötig folgende Dateien anlegen:
-
-src/__init__.py
-src/api/__init__.py
-src/db/__init__.py
-src/storage/__init__.py
-
---------------------------------------------------
-
-HINWEISE FÜR WINDOWS
-
-- PowerShell verwenden
-- Docker Desktop muss laufen
-- ggf. Script-Ausführung erlauben:
-
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-
---------------------------------------------------
-
-STATUS
-
-[x] Projektstruktur
-[x] MongoDB Setup
-[x] JSON Speicherung
-[x] Mongo Speicherung
-[ ] APIs integrieren
-[ ] Datenanalyse
+Danach die Datenbank `big_data_weather_airpollution` und die Collections `weather_raw` sowie `air_quality_raw` öffnen.
