@@ -5,9 +5,10 @@ Projekt zum Sammeln, Speichern und späteren Auswerten von Wetter- und Luftquali
 ## Struktur
 
 - `data/raw/`: rohe JSON-Daten aus APIs
-- `data/processed/`: später bereinigte/verarbeitete Daten
+- `data/processed/`: verarbeitete MapReduce-Ergebnisse
 - `src/api/`: API-Zugriffe
 - `src/db/`: MongoDB-Verbindung
+- `src/MapReduce.py`: explizite MapReduce-Pipeline fuer die Auswertung
 - `src/storage/`: Speichern von JSON und MongoDB-Inserts
 - `src/main.py`: Einstiegspunkt
 
@@ -92,8 +93,15 @@ python -m src.main
 Nach dem Start:
 
 - lokale JSON-Dateien in `data/raw/weather/` und `data/raw/air_quality/`
+- verarbeitete MapReduce-JSON-Dateien in `data/processed/`
 - MongoDB-Datenbank `big_data_weather_airpollution`
 - Collections `weather_raw` und `air_quality_raw`
+
+Die MapReduce-Verarbeitung ergänzt fehlende numerische Werte im Prozessschritt mit der Regel:
+
+```text
+fehlender Wert = Durchschnitt aus vorherigem und naechstem Zeitpunkt
+```
 
 Wenn MongoDB nicht läuft, bricht die Anwendung jetzt mit einer klaren Fehlermeldung ab und verweist auf:
 

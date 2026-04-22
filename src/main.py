@@ -25,10 +25,10 @@ def main():
     weather_id = insert_document("weather_raw", weather_data)
     air_quality_id = insert_document("air_quality_raw", air_quality_data)
 
-    print(f"Wetterdaten gespeichert in Datei: {weather_file}")
-    print(f"Luftqualitätsdaten gespeichert in Datei: {air_quality_file}")
-    print(f"Wetterdaten in Mongo gespeichert mit ID: {weather_id}")
-    print(f"Luftqualitätsdaten in Mongo gespeichert mit ID: {air_quality_id}")
+    print("Wetterdaten von OpenWeather gespeichert.")
+    print("Luftqualitaetsdaten von OpenAQ gespeichert.")
+    print("Daten in Datenbank uebertragen.")
+    print("Prozess abgeschlossen.")
 
 
 if __name__ == "__main__":
