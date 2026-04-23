@@ -4,4 +4,3 @@ python-dotenv
 matplotlib
 pandas
 numpy
-ipython
