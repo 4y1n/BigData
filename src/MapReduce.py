@@ -329,46 +329,69 @@ def load_latest_processed_result(output_dir: Path = PROCESSED_OUTPUT_DIR) -> dic
 
 
 def run_MapReduce_pipeline() -> dict:
-    raw_records, input_source = load_latest_raw_records()
-    processed_records = impute_missing_values(raw_records)
-    mapped_records = map_raw_records(processed_records)
-    summary_records = reduce_mapped_records(mapped_records)
-    stats = _build_mapreduce_stats(processed_records, summary_records)
+    try:
+        print("📊 Starten MapReduce-Pipeline...")
+        print("  1. Lade Rohdaten...")
+        raw_records, input_source = load_latest_raw_records()
+        print(f"     ✓ {len(raw_records)} Rohdatensätze geladen")
 
-    result = {
-        "pipeline": "MapReduce",
-        "imputation_rule": "fehlender_wert = durchschnitt(vorheriger_zeitpunkt, naechster_zeitpunkt)",
-        "created_at": datetime.now().isoformat(timespec="seconds"),
-        "input_source": input_source,
-        "raw_record_count": len(raw_records),
-        "processed_record_count": len(processed_records),
-        "summary_record_count": len(summary_records),
-        "stats": stats,
-        "processed_records": processed_records,
-        "summary_records": summary_records,
-    }
-    processed_file = _save_processed_result(result)
-    result["processed_file"] = processed_file
+        print("  2. Imputiere fehlende Werte...")
+        processed_records = impute_missing_values(raw_records)
+        print(f"     ✓ Verarbeitung abgeschlossen")
 
-    print(f"MapReduce-Datei: {processed_file}")
-    print(f"Rohdatensaetze: {stats['raw_record_count']}")
-    print(f"Zusammengefasste Datensaetze: {stats['city_count']} Staedte")
-    print(
-        "Fehlende Werte vor Verarbeitung: "
-        f"Temperatur={stats['missing_counts_before']['temperature']}, "
-        f"Windgeschwindigkeit={stats['missing_counts_before']['wind_speed']}, "
-        f"Luftqualitaet={stats['missing_counts_before']['air_quality']}"
-    )
-    print(
-        "Ergaenzte Werte: "
-        f"Temperatur={stats['imputed_counts']['temperature']}, "
-        f"Windgeschwindigkeit={stats['imputed_counts']['wind_speed']}, "
-        f"Luftqualitaet={stats['imputed_counts']['air_quality']}, "
-        f"Gesamt={stats['imputed_counts']['total']}"
-    )
-    print(
-        "Vollstaendige Temperatur-Luftqualitaet-Paare: "
-        f"vorher={stats['complete_pairs']['before']}, "
-        f"nachher={stats['complete_pairs']['after']}"
-    )
-    return result
+        print("  3. Map-Phase...")
+        mapped_records = map_raw_records(processed_records)
+        print(f"     ✓ {len(mapped_records)} Datensätze gemappt")
+
+        print("  4. Reduce-Phase...")
+        summary_records = reduce_mapped_records(mapped_records)
+        print(f"     ✓ {len(summary_records)} Städte zusammengefasst")
+
+        print("  5. Berechne Statistiken...")
+        stats = _build_mapreduce_stats(processed_records, summary_records)
+        print(f"     ✓ Statistiken berechnet")
+
+        result = {
+            "pipeline": "MapReduce",
+            "imputation_rule": "fehlender_wert = durchschnitt(vorheriger_zeitpunkt, naechster_zeitpunkt)",
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "input_source": input_source,
+            "raw_record_count": len(raw_records),
+            "processed_record_count": len(processed_records),
+            "summary_record_count": len(summary_records),
+            "stats": stats,
+            "processed_records": processed_records,
+            "summary_records": summary_records,
+        }
+        processed_file = _save_processed_result(result)
+        result["processed_file"] = processed_file
+
+        print(f"\n✓ MapReduce-Pipeline erfolgreich abgeschlossen!")
+        print(f"📁 MapReduce-Datei: {processed_file}")
+        print(f"📊 Rohdatensaetze: {stats['raw_record_count']}")
+        print(f"🏙️  Zusammengefasste Datensaetze: {stats['city_count']} Staedte")
+        print(
+            "⚠️  Fehlende Werte vor Verarbeitung: "
+            f"Temperatur={stats['missing_counts_before']['temperature']}, "
+            f"Windgeschwindigkeit={stats['missing_counts_before']['wind_speed']}, "
+            f"Luftqualitaet={stats['missing_counts_before']['air_quality']}"
+        )
+        print(
+            "✓ Ergaenzte Werte: "
+            f"Temperatur={stats['imputed_counts']['temperature']}, "
+            f"Windgeschwindigkeit={stats['imputed_counts']['wind_speed']}, "
+            f"Luftqualitaet={stats['imputed_counts']['air_quality']}, "
+            f"Gesamt={stats['imputed_counts']['total']}"
+        )
+        print(
+            "🔗 Vollstaendige Temperatur-Luftqualitaet-Paare: "
+            f"vorher={stats['complete_pairs']['before']}, "
+            f"nachher={stats['complete_pairs']['after']}"
+        )
+        return result
+    except Exception as e:
+        print(f"\n✗ Fehler in MapReduce-Pipeline:")
+        print(f"  {type(e).__name__}: {e}")
+        import traceback
+        traceback.print_exc()
+        raise
