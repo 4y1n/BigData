@@ -1,0 +1,1788 @@
+{
+  "source": "openweathermap_comparison",
+  "comparison_mode": "fixed_yearly_local_noon",
+  "request_type": "timemachine",
+  "sample_year": 2025,
+  "timepoint_count": 15,
+  "sample_dates": [
+    "2025-01-01",
+    "2025-01-27",
+    "2025-02-22",
+    "2025-03-20",
+    "2025-04-15",
+    "2025-05-11",
+    "2025-06-06",
+    "2025-07-02",
+    "2025-07-28",
+    "2025-08-23",
+    "2025-09-18",
+    "2025-10-14",
+    "2025-11-09",
+    "2025-12-05",
+    "2025-12-31"
+  ],
+  "units": "metric",
+  "lang": "de",
+  "cities": [
+    {
+      "city": "Vienna",
+      "slug": "vienna",
+      "timezone": "Europe/Vienna",
+      "lat": 48.2082,
+      "lon": 16.3738,
+      "status": "available",
+      "available_timepoint_count": 15,
+      "missing_timepoint_count": 0,
+      "series": [
+        {
+          "date": "2025-01-01",
+          "target_timestamp_utc": "2025-01-01T11:00:00Z",
+          "target_timestamp_local": "2025-01-01T12:00:00+01:00",
+          "status": "available",
+          "data": {
+            "dt": 1735729200,
+            "sunrise": 1735713910,
+            "sunset": 1735744241,
+            "temp": -0.24,
+            "feels_like": -2.36,
+            "pressure": 1029,
+            "humidity": 84,
+            "dew_point": -2.34,
+            "clouds": 42,
+            "wind_speed": 1.72,
+            "wind_deg": 128,
+            "weather": [
+              {
+                "id": 802,
+                "main": "Clouds",
+                "description": "Mäßig bewölkt",
+                "icon": "03d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-01-27",
+          "target_timestamp_utc": "2025-01-27T11:00:00Z",
+          "target_timestamp_local": "2025-01-27T12:00:00+01:00",
+          "status": "available",
+          "data": {
+            "dt": 1737975600,
+            "sunrise": 1737959341,
+            "sunset": 1737992716,
+            "temp": 8.3,
+            "feels_like": 8.3,
+            "pressure": 1007,
+            "humidity": 81,
+            "dew_point": 5.24,
+            "clouds": 95,
+            "wind_speed": 0.45,
+            "wind_deg": 342,
+            "wind_gust": 0.89,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-02-22",
+          "target_timestamp_utc": "2025-02-22T11:00:00Z",
+          "target_timestamp_local": "2025-02-22T12:00:00+01:00",
+          "status": "available",
+          "data": {
+            "dt": 1740222000,
+            "sunrise": 1740203352,
+            "sunset": 1740241628,
+            "temp": 5.75,
+            "feels_like": 0.51,
+            "pressure": 1026,
+            "humidity": 48,
+            "dew_point": -3.9,
+            "clouds": 0,
+            "wind_speed": 10.28,
+            "wind_deg": 184,
+            "wind_gust": 19.22,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-03-20",
+          "target_timestamp_utc": "2025-03-20T11:00:00Z",
+          "target_timestamp_local": "2025-03-20T12:00:00+01:00",
+          "status": "available",
+          "data": {
+            "dt": 1742468400,
+            "sunrise": 1742446647,
+            "sunset": 1742490388,
+            "temp": 10.76,
+            "feels_like": 9.12,
+            "pressure": 1029,
+            "humidity": 47,
+            "dew_point": -0.08,
+            "clouds": 0,
+            "wind_speed": 1.79,
+            "wind_deg": 113,
+            "wind_gust": 3.58,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-04-15",
+          "target_timestamp_utc": "2025-04-15T10:00:00Z",
+          "target_timestamp_local": "2025-04-15T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1744711200,
+            "sunrise": 1744689870,
+            "sunset": 1744739047,
+            "temp": 15.38,
+            "feels_like": 15.3,
+            "pressure": 1005,
+            "humidity": 89,
+            "dew_point": 13.58,
+            "clouds": 89,
+            "wind_speed": 7.15,
+            "wind_deg": 230,
+            "wind_gust": 18.78,
+            "weather": [
+              {
+                "id": 500,
+                "main": "Rain",
+                "description": "Leichter Regen",
+                "icon": "10d"
+              }
+            ],
+            "rain": {
+              "1h": 0.25
+            }
+          }
+        },
+        {
+          "date": "2025-05-11",
+          "target_timestamp_utc": "2025-05-11T10:00:00Z",
+          "target_timestamp_local": "2025-05-11T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1746957600,
+            "sunrise": 1746933627,
+            "sunset": 1746987683,
+            "temp": 15.91,
+            "feels_like": 14.89,
+            "pressure": 1018,
+            "humidity": 51,
+            "dew_point": 5.8,
+            "clouds": 69,
+            "wind_speed": 2.68,
+            "wind_deg": 343,
+            "wind_gust": 4.02,
+            "weather": [
+              {
+                "id": 803,
+                "main": "Clouds",
+                "description": "Überwiegend bewölkt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-06-06",
+          "target_timestamp_utc": "2025-06-06T10:00:00Z",
+          "target_timestamp_local": "2025-06-06T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1749204000,
+            "sunrise": 1749178546,
+            "sunset": 1749235854,
+            "temp": 26.44,
+            "feels_like": 26.44,
+            "pressure": 1015,
+            "humidity": 48,
+            "dew_point": 14.55,
+            "clouds": 16,
+            "wind_speed": 1.34,
+            "wind_deg": 110,
+            "wind_gust": 4.47,
+            "weather": [
+              {
+                "id": 801,
+                "main": "Clouds",
+                "description": "Ein paar Wolken",
+                "icon": "02d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-07-02",
+          "target_timestamp_utc": "2025-07-02T10:00:00Z",
+          "target_timestamp_local": "2025-07-02T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1751450400,
+            "sunrise": 1751425117,
+            "sunset": 1751482690,
+            "temp": 29.57,
+            "feels_like": 29.01,
+            "pressure": 1019,
+            "humidity": 38,
+            "dew_point": 13.76,
+            "clouds": 0,
+            "wind_speed": 4.02,
+            "wind_deg": 213,
+            "wind_gust": 8.05,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-07-28",
+          "target_timestamp_utc": "2025-07-28T10:00:00Z",
+          "target_timestamp_local": "2025-07-28T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1753696800,
+            "sunrise": 1753673087,
+            "sunset": 1753727819,
+            "temp": 20.79,
+            "feels_like": 20.96,
+            "pressure": 1008,
+            "humidity": 78,
+            "dew_point": 16.82,
+            "clouds": 85,
+            "wind_speed": 8.05,
+            "wind_deg": 330,
+            "wind_gust": 16.99,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-08-23",
+          "target_timestamp_utc": "2025-08-23T10:00:00Z",
+          "target_timestamp_local": "2025-08-23T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1755943200,
+            "sunrise": 1755921598,
+            "sunset": 1755971683,
+            "temp": 19.44,
+            "feels_like": 18.88,
+            "pressure": 1016,
+            "humidity": 55,
+            "dew_point": 10.17,
+            "clouds": 99,
+            "wind_speed": 2.24,
+            "wind_deg": 293,
+            "wind_gust": 6.26,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-09-18",
+          "target_timestamp_utc": "2025-09-18T10:00:00Z",
+          "target_timestamp_local": "2025-09-18T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1758189600,
+            "sunrise": 1758170136,
+            "sunset": 1758214912,
+            "temp": 19.67,
+            "feels_like": 19.6,
+            "pressure": 1025,
+            "humidity": 73,
+            "dew_point": 14.7,
+            "clouds": 56,
+            "wind_speed": 1.68,
+            "wind_deg": 164,
+            "weather": [
+              {
+                "id": 803,
+                "main": "Clouds",
+                "description": "Überwiegend bewölkt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-10-14",
+          "target_timestamp_utc": "2025-10-14T10:00:00Z",
+          "target_timestamp_local": "2025-10-14T12:00:00+02:00",
+          "status": "available",
+          "data": {
+            "dt": 1760436000,
+            "sunrise": 1760418738,
+            "sunset": 1760458101,
+            "temp": 14.33,
+            "feels_like": 13.67,
+            "pressure": 1024,
+            "humidity": 71,
+            "dew_point": 9.15,
+            "clouds": 53,
+            "wind_speed": 2.24,
+            "wind_deg": 88,
+            "wind_gust": 4.02,
+            "weather": [
+              {
+                "id": 803,
+                "main": "Clouds",
+                "description": "Überwiegend bewölkt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-11-09",
+          "target_timestamp_utc": "2025-11-09T11:00:00Z",
+          "target_timestamp_local": "2025-11-09T12:00:00+01:00",
+          "status": "available",
+          "data": {
+            "dt": 1762686000,
+            "sunrise": 1762667538,
+            "sunset": 1762701866,
+            "temp": 10.95,
+            "feels_like": 10.03,
+            "pressure": 1018,
+            "humidity": 74,
+            "dew_point": 6.5,
+            "clouds": 99,
+            "wind_speed": 4.92,
+            "wind_deg": 336,
+            "wind_gust": 13.86,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-12-05",
+          "target_timestamp_utc": "2025-12-05T11:00:00Z",
+          "target_timestamp_local": "2025-12-05T12:00:00+01:00",
+          "status": "available",
+          "data": {
+            "dt": 1764932400,
+            "sunrise": 1764916141,
+            "sunset": 1764946896,
+            "temp": 4.42,
+            "feels_like": 0.44,
+            "pressure": 1011,
+            "humidity": 89,
+            "dew_point": 2.77,
+            "clouds": 100,
+            "wind_speed": 5.36,
+            "wind_deg": 332,
+            "wind_gust": 11.62,
+            "weather": [
+              {
+                "id": 500,
+                "main": "Rain",
+                "description": "Leichter Regen",
+                "icon": "10d"
+              }
+            ],
+            "rain": {
+              "1h": 0.25
+            }
+          }
+        },
+        {
+          "date": "2025-12-31",
+          "target_timestamp_utc": "2025-12-31T11:00:00Z",
+          "target_timestamp_local": "2025-12-31T12:00:00+01:00",
+          "status": "available",
+          "data": {
+            "dt": 1767178800,
+            "sunrise": 1767163510,
+            "sunset": 1767193771,
+            "temp": -0.89,
+            "feels_like": -7.89,
+            "pressure": 1021,
+            "humidity": 63,
+            "dew_point": -6.35,
+            "clouds": 24,
+            "wind_speed": 12.96,
+            "wind_deg": 326,
+            "wind_gust": 30.85,
+            "weather": [
+              {
+                "id": 801,
+                "main": "Clouds",
+                "description": "Ein paar Wolken",
+                "icon": "02d"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "city": "New York",
+      "slug": "new-york",
+      "timezone": "America/New_York",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "status": "available",
+      "available_timepoint_count": 15,
+      "missing_timepoint_count": 0,
+      "series": [
+        {
+          "date": "2025-01-01",
+          "target_timestamp_utc": "2025-01-01T17:00:00Z",
+          "target_timestamp_local": "2025-01-01T12:00:00-05:00",
+          "status": "available",
+          "data": {
+            "dt": 1735750800,
+            "sunrise": 1735734002,
+            "sunset": 1735767545,
+            "temp": 9.73,
+            "feels_like": 5.9,
+            "pressure": 1000,
+            "humidity": 72,
+            "dew_point": 4.93,
+            "clouds": 100,
+            "visibility": 10000,
+            "wind_speed": 9.8,
+            "wind_deg": 280,
+            "wind_gust": 0,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-01-27",
+          "target_timestamp_utc": "2025-01-27T17:00:00Z",
+          "target_timestamp_local": "2025-01-27T12:00:00-05:00",
+          "status": "available",
+          "data": {
+            "dt": 1737997200,
+            "sunrise": 1737979816,
+            "sunset": 1738015629,
+            "temp": 3.01,
+            "feels_like": -2.31,
+            "pressure": 1016,
+            "humidity": 40,
+            "dew_point": -8.24,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 7.7,
+            "wind_deg": 260,
+            "wind_gust": 0,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-02-22",
+          "target_timestamp_utc": "2025-02-22T17:00:00Z",
+          "target_timestamp_local": "2025-02-22T12:00:00-05:00",
+          "status": "available",
+          "data": {
+            "dt": 1740243600,
+            "sunrise": 1740224416,
+            "sunset": 1740263943,
+            "temp": 1.96,
+            "feels_like": -1.25,
+            "pressure": 1027,
+            "humidity": 42,
+            "dew_point": -8.54,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 3.13,
+            "wind_deg": 273,
+            "wind_gust": 4.47,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-03-20",
+          "target_timestamp_utc": "2025-03-20T16:00:00Z",
+          "target_timestamp_local": "2025-03-20T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1742486400,
+            "sunrise": 1742468343,
+            "sunset": 1742512065,
+            "temp": 7.69,
+            "feels_like": 3.76,
+            "pressure": 1010,
+            "humidity": 93,
+            "dew_point": 6.63,
+            "clouds": 100,
+            "visibility": 10000,
+            "wind_speed": 7.7,
+            "wind_deg": 150,
+            "wind_gust": 0,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-04-15",
+          "target_timestamp_utc": "2025-04-15T16:00:00Z",
+          "target_timestamp_local": "2025-04-15T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1744732800,
+            "sunrise": 1744712202,
+            "sunset": 1744760090,
+            "temp": 17.46,
+            "feels_like": 17.01,
+            "pressure": 998,
+            "humidity": 67,
+            "dew_point": 11.27,
+            "clouds": 100,
+            "visibility": 10000,
+            "wind_speed": 7.2,
+            "wind_deg": 290,
+            "wind_gust": 0,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-05-11",
+          "target_timestamp_utc": "2025-05-11T16:00:00Z",
+          "target_timestamp_local": "2025-05-11T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1746979200,
+            "sunrise": 1746956565,
+            "sunset": 1747008127,
+            "temp": 23.94,
+            "feels_like": 23.23,
+            "pressure": 1023,
+            "humidity": 32,
+            "dew_point": 6.25,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 2.57,
+            "wind_deg": 0,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-06-06",
+          "target_timestamp_utc": "2025-06-06T16:00:00Z",
+          "target_timestamp_local": "2025-06-06T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1749225600,
+            "sunrise": 1749201926,
+            "sunset": 1749255862,
+            "temp": 29.26,
+            "feels_like": 31.16,
+            "pressure": 1013,
+            "humidity": 58,
+            "dew_point": 20.15,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 1.79,
+            "wind_deg": 294,
+            "wind_gust": 4.47,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-07-02",
+          "target_timestamp_utc": "2025-07-02T16:00:00Z",
+          "target_timestamp_local": "2025-07-02T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1751472000,
+            "sunrise": 1751448545,
+            "sunset": 1751502650,
+            "temp": 26.1,
+            "feels_like": 26.1,
+            "pressure": 1012,
+            "humidity": 81,
+            "dew_point": 22.58,
+            "clouds": 20,
+            "visibility": 10000,
+            "wind_speed": 2.24,
+            "wind_deg": 289,
+            "wind_gust": 2.68,
+            "weather": [
+              {
+                "id": 500,
+                "main": "Rain",
+                "description": "Leichter Regen",
+                "icon": "10d"
+              }
+            ],
+            "rain": {
+              "1h": 0.16
+            }
+          }
+        },
+        {
+          "date": "2025-07-28",
+          "target_timestamp_utc": "2025-07-28T16:00:00Z",
+          "target_timestamp_local": "2025-07-28T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1753718400,
+            "sunrise": 1753696141,
+            "sunset": 1753748147,
+            "temp": 32.18,
+            "feels_like": 35.74,
+            "pressure": 1016,
+            "humidity": 54,
+            "dew_point": 21.69,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 1.79,
+            "wind_deg": 33,
+            "wind_gust": 3.58,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-08-23",
+          "target_timestamp_utc": "2025-08-23T16:00:00Z",
+          "target_timestamp_local": "2025-08-23T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1755964800,
+            "sunrise": 1755944076,
+            "sunset": 1755992579,
+            "temp": 26.47,
+            "feels_like": 26.47,
+            "pressure": 1019,
+            "humidity": 42,
+            "dew_point": 12.53,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 2.57,
+            "wind_deg": 260,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-09-18",
+          "target_timestamp_utc": "2025-09-18T16:00:00Z",
+          "target_timestamp_local": "2025-09-18T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1758211200,
+            "sunrise": 1758191991,
+            "sunset": 1758236429,
+            "temp": 25.44,
+            "feels_like": 25.63,
+            "pressure": 1015,
+            "humidity": 61,
+            "dew_point": 17.37,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 3.09,
+            "wind_deg": 210,
+            "wind_gust": 24.69,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-10-14",
+          "target_timestamp_utc": "2025-10-14T16:00:00Z",
+          "target_timestamp_local": "2025-10-14T12:00:00-04:00",
+          "status": "available",
+          "data": {
+            "dt": 1760457600,
+            "sunrise": 1760439968,
+            "sunset": 1760480248,
+            "temp": 14.1,
+            "feels_like": 13.79,
+            "pressure": 1017,
+            "humidity": 85,
+            "dew_point": 11.62,
+            "clouds": 100,
+            "visibility": 10000,
+            "wind_speed": 6.71,
+            "wind_deg": 38,
+            "wind_gust": 8.94,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-11-09",
+          "target_timestamp_utc": "2025-11-09T17:00:00Z",
+          "target_timestamp_local": "2025-11-09T12:00:00-05:00",
+          "status": "available",
+          "data": {
+            "dt": 1762707600,
+            "sunrise": 1762688163,
+            "sunset": 1762724626,
+            "temp": 15.72,
+            "feels_like": 15.62,
+            "pressure": 1009,
+            "humidity": 87,
+            "dew_point": 13.56,
+            "clouds": 100,
+            "visibility": 10000,
+            "wind_speed": 3.13,
+            "wind_deg": 233,
+            "wind_gust": 7.6,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-12-05",
+          "target_timestamp_utc": "2025-12-05T17:00:00Z",
+          "target_timestamp_local": "2025-12-05T12:00:00-05:00",
+          "status": "available",
+          "data": {
+            "dt": 1764954000,
+            "sunrise": 1764936302,
+            "sunset": 1764970129,
+            "temp": -2.23,
+            "feels_like": -5.36,
+            "pressure": 1024,
+            "humidity": 54,
+            "dew_point": -9.39,
+            "clouds": 100,
+            "visibility": 10000,
+            "wind_speed": 2.24,
+            "wind_deg": 84,
+            "wind_gust": 3.58,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-12-31",
+          "target_timestamp_utc": "2025-12-31T17:00:00Z",
+          "target_timestamp_local": "2025-12-31T12:00:00-05:00",
+          "status": "available",
+          "data": {
+            "dt": 1767200400,
+            "sunrise": 1767183593,
+            "sunset": 1767217084,
+            "temp": -0.09,
+            "feels_like": -6.12,
+            "pressure": 1009,
+            "humidity": 51,
+            "dew_point": -8.02,
+            "clouds": 40,
+            "visibility": 10000,
+            "wind_speed": 7.2,
+            "wind_deg": 260,
+            "wind_gust": 10.8,
+            "weather": [
+              {
+                "id": 802,
+                "main": "Clouds",
+                "description": "Mäßig bewölkt",
+                "icon": "03d"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "city": "New Delhi",
+      "slug": "new-delhi",
+      "timezone": "Asia/Kolkata",
+      "lat": 28.6139,
+      "lon": 77.209,
+      "status": "available",
+      "available_timepoint_count": 15,
+      "missing_timepoint_count": 0,
+      "series": [
+        {
+          "date": "2025-01-01",
+          "target_timestamp_utc": "2025-01-01T06:30:00Z",
+          "target_timestamp_local": "2025-01-01T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1735713000,
+            "sunrise": 1735695832,
+            "sunset": 1735733109,
+            "temp": 12.99,
+            "feels_like": 12.22,
+            "pressure": 1020,
+            "humidity": 72,
+            "dew_point": 8.07,
+            "clouds": 75,
+            "visibility": 500,
+            "wind_speed": 2.6,
+            "wind_deg": 270,
+            "wind_gust": 0,
+            "weather": [
+              {
+                "id": 711,
+                "main": "Smoke",
+                "description": "Rauch",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-01-27",
+          "target_timestamp_utc": "2025-01-27T06:30:00Z",
+          "target_timestamp_local": "2025-01-27T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1737959400,
+            "sunrise": 1737942102,
+            "sunset": 1737980750,
+            "temp": 19.79,
+            "feels_like": 18.9,
+            "pressure": 1015,
+            "humidity": 41,
+            "dew_point": 6.17,
+            "clouds": 0,
+            "visibility": 2000,
+            "wind_speed": 3.1,
+            "wind_deg": 270,
+            "wind_gust": 0,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-02-22",
+          "target_timestamp_utc": "2025-02-22T06:30:00Z",
+          "target_timestamp_local": "2025-02-22T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1740205800,
+            "sunrise": 1740187412,
+            "sunset": 1740228370,
+            "temp": 20.59,
+            "feels_like": 20.22,
+            "pressure": 1018,
+            "humidity": 58,
+            "dew_point": 12.05,
+            "clouds": 20,
+            "visibility": 2000,
+            "wind_speed": 4.12,
+            "wind_deg": 270,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-03-20",
+          "target_timestamp_utc": "2025-03-20T06:30:00Z",
+          "target_timestamp_local": "2025-03-20T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1742452200,
+            "sunrise": 1742432116,
+            "sunset": 1742475724,
+            "temp": 32.19,
+            "feels_like": 30.6,
+            "pressure": 1015,
+            "humidity": 26,
+            "dew_point": 10.27,
+            "clouds": 20,
+            "visibility": 4000,
+            "wind_speed": 3.1,
+            "wind_deg": 300,
+            "wind_gust": 0,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-04-15",
+          "target_timestamp_utc": "2025-04-15T06:30:00Z",
+          "target_timestamp_local": "2025-04-15T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1744698600,
+            "sunrise": 1744676737,
+            "sunset": 1744722983,
+            "temp": 35.79,
+            "feels_like": 37.45,
+            "pressure": 1009,
+            "humidity": 36,
+            "dew_point": 18.4,
+            "clouds": 0,
+            "visibility": 4000,
+            "wind_speed": 4.12,
+            "wind_deg": 110,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-05-11",
+          "target_timestamp_utc": "2025-05-11T06:30:00Z",
+          "target_timestamp_local": "2025-05-11T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1746945000,
+            "sunrise": 1746921781,
+            "sunset": 1746970329,
+            "temp": 35.41,
+            "feels_like": 37.37,
+            "pressure": 1005,
+            "humidity": 38,
+            "dew_point": 18.92,
+            "clouds": 14,
+            "visibility": 4000,
+            "wind_speed": 2.57,
+            "wind_deg": 310,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-06-06",
+          "target_timestamp_utc": "2025-06-06T06:30:00Z",
+          "target_timestamp_local": "2025-06-06T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1749191400,
+            "sunrise": 1749167587,
+            "sunset": 1749217609,
+            "temp": 35.66,
+            "feels_like": 36.66,
+            "pressure": 1006,
+            "humidity": 34,
+            "dew_point": 17.37,
+            "clouds": 40,
+            "visibility": 5000,
+            "wind_speed": 1.54,
+            "wind_deg": 240,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-07-02",
+          "target_timestamp_utc": "2025-07-02T06:30:00Z",
+          "target_timestamp_local": "2025-07-02T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1751437800,
+            "sunrise": 1751414228,
+            "sunset": 1751464375,
+            "temp": 34.12,
+            "feels_like": 41.12,
+            "pressure": 999,
+            "humidity": 66,
+            "dew_point": 26.86,
+            "clouds": 40,
+            "visibility": 5000,
+            "wind_speed": 3.6,
+            "wind_deg": 80,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-07-28",
+          "target_timestamp_utc": "2025-07-28T06:30:00Z",
+          "target_timestamp_local": "2025-07-28T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1753684200,
+            "sunrise": 1753661411,
+            "sunset": 1753710295,
+            "temp": 33.49,
+            "feels_like": 40.49,
+            "pressure": 997,
+            "humidity": 62,
+            "dew_point": 25.2,
+            "clouds": 75,
+            "visibility": 3500,
+            "wind_speed": 1.03,
+            "wind_deg": 0,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-08-23",
+          "target_timestamp_utc": "2025-08-23T06:30:00Z",
+          "target_timestamp_local": "2025-08-23T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1755930600,
+            "sunrise": 1755908686,
+            "sunset": 1755955399,
+            "temp": 30.62,
+            "feels_like": 35.52,
+            "pressure": 1000,
+            "humidity": 66,
+            "dew_point": 23.54,
+            "clouds": 40,
+            "visibility": 5000,
+            "wind_speed": 2.57,
+            "wind_deg": 70,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-09-18",
+          "target_timestamp_utc": "2025-09-18T06:30:00Z",
+          "target_timestamp_local": "2025-09-18T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1758177000,
+            "sunrise": 1758155853,
+            "sunset": 1758200001,
+            "temp": 31.92,
+            "feels_like": 38.79,
+            "pressure": 1006,
+            "humidity": 66,
+            "dew_point": 24.77,
+            "clouds": 75,
+            "visibility": 4000,
+            "wind_speed": 2.57,
+            "wind_deg": 80,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-10-14",
+          "target_timestamp_utc": "2025-10-14T06:30:00Z",
+          "target_timestamp_local": "2025-10-14T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1760423400,
+            "sunrise": 1760403064,
+            "sunset": 1760444579,
+            "temp": 30.49,
+            "feels_like": 29.69,
+            "pressure": 1012,
+            "humidity": 35,
+            "dew_point": 13.31,
+            "clouds": 0,
+            "visibility": 4000,
+            "wind_speed": 2.57,
+            "wind_deg": 290,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-11-09",
+          "target_timestamp_utc": "2025-11-09T06:30:00Z",
+          "target_timestamp_local": "2025-11-09T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1762669800,
+            "sunrise": 1762650542,
+            "sunset": 1762689659,
+            "temp": 25.47,
+            "feels_like": 25.14,
+            "pressure": 1014,
+            "humidity": 41,
+            "dew_point": 11.27,
+            "clouds": 0,
+            "wind_speed": 3.63,
+            "wind_deg": 312,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-12-05",
+          "target_timestamp_utc": "2025-12-05T06:30:00Z",
+          "target_timestamp_local": "2025-12-05T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1764916200,
+            "sunrise": 1764898175,
+            "sunset": 1764935653,
+            "temp": 20.13,
+            "feels_like": 19.22,
+            "pressure": 1022,
+            "humidity": 39,
+            "dew_point": 5.76,
+            "clouds": 0,
+            "visibility": 1800,
+            "wind_speed": 1.54,
+            "wind_deg": 280,
+            "weather": [
+              {
+                "id": 721,
+                "main": "Haze",
+                "description": "Dunst",
+                "icon": "50d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-12-31",
+          "target_timestamp_utc": "2025-12-31T06:30:00Z",
+          "target_timestamp_local": "2025-12-31T12:00:00+05:30",
+          "status": "available",
+          "data": {
+            "dt": 1767162600,
+            "sunrise": 1767145412,
+            "sunset": 1767182659,
+            "temp": 15.12,
+            "feels_like": 14.91,
+            "pressure": 1013,
+            "humidity": 85,
+            "dew_point": 12.62,
+            "clouds": 1,
+            "wind_speed": 3.27,
+            "wind_deg": 152,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "city": "Phoenix",
+      "slug": "phoenix",
+      "timezone": "America/Phoenix",
+      "lat": 33.4484,
+      "lon": -112.074,
+      "status": "available",
+      "available_timepoint_count": 15,
+      "missing_timepoint_count": 0,
+      "series": [
+        {
+          "date": "2025-01-01",
+          "target_timestamp_utc": "2025-01-01T19:00:00Z",
+          "target_timestamp_local": "2025-01-01T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1735758000,
+            "sunrise": 1735741944,
+            "sunset": 1735777882,
+            "temp": 17.65,
+            "feels_like": 16.2,
+            "pressure": 1021,
+            "humidity": 28,
+            "dew_point": -0.94,
+            "clouds": 40,
+            "visibility": 10000,
+            "wind_speed": 1.79,
+            "wind_deg": 260,
+            "wind_gust": 2.68,
+            "weather": [
+              {
+                "id": 802,
+                "main": "Clouds",
+                "description": "Mäßig bewölkt",
+                "icon": "03d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-01-27",
+          "target_timestamp_utc": "2025-01-27T19:00:00Z",
+          "target_timestamp_local": "2025-01-27T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1738004400,
+            "sunrise": 1737988037,
+            "sunset": 1738025684,
+            "temp": 14.8,
+            "feels_like": 13.46,
+            "pressure": 1019,
+            "humidity": 43,
+            "dew_point": 2.35,
+            "clouds": 75,
+            "visibility": 10000,
+            "wind_speed": 3.6,
+            "wind_deg": 270,
+            "weather": [
+              {
+                "id": 500,
+                "main": "Rain",
+                "description": "Leichter Regen",
+                "icon": "10d"
+              }
+            ],
+            "rain": {
+              "1h": 0.19
+            }
+          }
+        },
+        {
+          "date": "2025-02-22",
+          "target_timestamp_utc": "2025-02-22T19:00:00Z",
+          "target_timestamp_local": "2025-02-22T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1740250800,
+            "sunrise": 1740233079,
+            "sunset": 1740273551,
+            "temp": 22.02,
+            "feels_like": 20.75,
+            "pressure": 1023,
+            "humidity": 18,
+            "dew_point": -2.98,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 2.68,
+            "wind_deg": 267,
+            "wind_gust": 3.58,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-03-20",
+          "target_timestamp_utc": "2025-03-20T19:00:00Z",
+          "target_timestamp_local": "2025-03-20T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1742497200,
+            "sunrise": 1742477494,
+            "sunset": 1742521182,
+            "temp": 23.25,
+            "feels_like": 21.92,
+            "pressure": 1018,
+            "humidity": 11,
+            "dew_point": -7.85,
+            "clouds": 20,
+            "visibility": 10000,
+            "wind_speed": 4.02,
+            "wind_deg": 139,
+            "wind_gust": 5.81,
+            "weather": [
+              {
+                "id": 801,
+                "main": "Clouds",
+                "description": "Ein paar Wolken",
+                "icon": "02d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-04-15",
+          "target_timestamp_utc": "2025-04-15T19:00:00Z",
+          "target_timestamp_local": "2025-04-15T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1744743600,
+            "sunrise": 1744721841,
+            "sunset": 1744768721,
+            "temp": 31.78,
+            "feels_like": 30.02,
+            "pressure": 1013,
+            "humidity": 24,
+            "dew_point": 8.74,
+            "clouds": 40,
+            "visibility": 10000,
+            "wind_speed": 3.6,
+            "wind_deg": 140,
+            "wind_gust": 7.72,
+            "weather": [
+              {
+                "id": 802,
+                "main": "Clouds",
+                "description": "Mäßig bewölkt",
+                "icon": "03d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-05-11",
+          "target_timestamp_utc": "2025-05-11T19:00:00Z",
+          "target_timestamp_local": "2025-05-11T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1746990000,
+            "sunrise": 1746966649,
+            "sunset": 1747016316,
+            "temp": 36.45,
+            "feels_like": 33.77,
+            "pressure": 1012,
+            "humidity": 12,
+            "dew_point": 2.5,
+            "clouds": 75,
+            "visibility": 10000,
+            "wind_speed": 5.14,
+            "wind_deg": 140,
+            "wind_gust": 9.77,
+            "weather": [
+              {
+                "id": 803,
+                "main": "Clouds",
+                "description": "Überwiegend bewölkt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-06-06",
+          "target_timestamp_utc": "2025-06-06T19:00:00Z",
+          "target_timestamp_local": "2025-06-06T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1749236400,
+            "sunrise": 1749212311,
+            "sunset": 1749263752,
+            "temp": 35.53,
+            "feels_like": 33.52,
+            "pressure": 1009,
+            "humidity": 19,
+            "dew_point": 8.38,
+            "clouds": 20,
+            "visibility": 10000,
+            "wind_speed": 1.79,
+            "wind_deg": 336,
+            "wind_gust": 2.68,
+            "weather": [
+              {
+                "id": 801,
+                "main": "Clouds",
+                "description": "Ein paar Wolken",
+                "icon": "02d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-07-02",
+          "target_timestamp_utc": "2025-07-02T19:00:00Z",
+          "target_timestamp_local": "2025-07-02T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1751482800,
+            "sunrise": 1751458956,
+            "sunset": 1751510514,
+            "temp": 41.01,
+            "feels_like": 41.59,
+            "pressure": 1007,
+            "humidity": 22,
+            "dew_point": 15.08,
+            "clouds": 75,
+            "visibility": 10000,
+            "wind_speed": 2.06,
+            "wind_deg": 70,
+            "weather": [
+              {
+                "id": 803,
+                "main": "Clouds",
+                "description": "Überwiegend bewölkt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-07-28",
+          "target_timestamp_utc": "2025-07-28T19:00:00Z",
+          "target_timestamp_local": "2025-07-28T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1753729200,
+            "sunrise": 1753706289,
+            "sunset": 1753756271,
+            "temp": 41.1,
+            "feels_like": 38.3,
+            "pressure": 1012,
+            "humidity": 11,
+            "dew_point": 4.81,
+            "clouds": 20,
+            "visibility": 10000,
+            "wind_speed": 3.13,
+            "wind_deg": 174,
+            "wind_gust": 4.47,
+            "weather": [
+              {
+                "id": 801,
+                "main": "Clouds",
+                "description": "Ein paar Wolken",
+                "icon": "02d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-08-23",
+          "target_timestamp_utc": "2025-08-23T19:00:00Z",
+          "target_timestamp_local": "2025-08-23T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1755975600,
+            "sunrise": 1755953800,
+            "sunset": 1756001125,
+            "temp": 39.12,
+            "feels_like": 41.46,
+            "pressure": 1010,
+            "humidity": 30,
+            "dew_point": 18.37,
+            "clouds": 40,
+            "visibility": 10000,
+            "wind_speed": 1.34,
+            "wind_deg": 202,
+            "wind_gust": 4.47,
+            "weather": [
+              {
+                "id": 802,
+                "main": "Clouds",
+                "description": "Mäßig bewölkt",
+                "icon": "03d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-09-18",
+          "target_timestamp_utc": "2025-09-18T19:00:00Z",
+          "target_timestamp_local": "2025-09-18T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1758222000,
+            "sunrise": 1758201238,
+            "sunset": 1758245449,
+            "temp": 32.69,
+            "feels_like": 34.4,
+            "pressure": 1010,
+            "humidity": 45,
+            "dew_point": 19.21,
+            "clouds": 75,
+            "visibility": 10000,
+            "wind_speed": 2.06,
+            "wind_deg": 30,
+            "weather": [
+              {
+                "id": 803,
+                "main": "Clouds",
+                "description": "Überwiegend bewölkt",
+                "icon": "04d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-10-14",
+          "target_timestamp_utc": "2025-10-14T19:00:00Z",
+          "target_timestamp_local": "2025-10-14T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1760468400,
+            "sunrise": 1760448731,
+            "sunset": 1760489754,
+            "temp": 27.32,
+            "feels_like": 27.28,
+            "pressure": 1012,
+            "humidity": 43,
+            "dew_point": 13.65,
+            "clouds": 20,
+            "visibility": 10000,
+            "wind_speed": 4.63,
+            "wind_deg": 190,
+            "weather": [
+              {
+                "id": 801,
+                "main": "Clouds",
+                "description": "Ein paar Wolken",
+                "icon": "02d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-11-09",
+          "target_timestamp_utc": "2025-11-09T19:00:00Z",
+          "target_timestamp_local": "2025-11-09T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1762714800,
+            "sunrise": 1762696473,
+            "sunset": 1762734591,
+            "temp": 29.68,
+            "feels_like": 27.96,
+            "pressure": 1019,
+            "humidity": 19,
+            "dew_point": 3.62,
+            "clouds": 0,
+            "visibility": 10000,
+            "wind_speed": 6.69,
+            "wind_deg": 80,
+            "weather": [
+              {
+                "id": 800,
+                "main": "Clear",
+                "description": "Klarer Himmel",
+                "icon": "01d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-12-05",
+          "target_timestamp_utc": "2025-12-05T19:00:00Z",
+          "target_timestamp_local": "2025-12-05T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1764961200,
+            "sunrise": 1764944284,
+            "sunset": 1764980425,
+            "temp": 16.09,
+            "feels_like": 14.75,
+            "pressure": 1019,
+            "humidity": 38,
+            "dew_point": 1.78,
+            "clouds": 20,
+            "visibility": 10000,
+            "wind_speed": 1.54,
+            "wind_deg": 90,
+            "weather": [
+              {
+                "id": 801,
+                "main": "Clouds",
+                "description": "Ein paar Wolken",
+                "icon": "02d"
+              }
+            ]
+          }
+        },
+        {
+          "date": "2025-12-31",
+          "target_timestamp_utc": "2025-12-31T19:00:00Z",
+          "target_timestamp_local": "2025-12-31T12:00:00-07:00",
+          "status": "available",
+          "data": {
+            "dt": 1767207600,
+            "sunrise": 1767191529,
+            "sunset": 1767227427,
+            "temp": 17.88,
+            "feels_like": 16.56,
+            "pressure": 1020,
+            "humidity": 32,
+            "dew_point": 0.97,
+            "clouds": 100,
+            "visibility": 10000,
+            "wind_speed": 3.6,
+            "wind_deg": 110,
+            "weather": [
+              {
+                "id": 804,
+                "main": "Clouds",
+                "description": "Bedeckt",
+                "icon": "04d"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

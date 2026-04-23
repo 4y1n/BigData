@@ -4,7 +4,7 @@ Projekt zum Sammeln, Speichern und späteren Auswerten von Wetter- und Luftquali
 
 ## Struktur
 
-- `data/raw/`: rohe JSON-Daten aus APIs
+- `data/raw/`: gemeinsame rohe JSON-Snapshots als Cache fuer Wetter- und Luftqualitaetsdaten
 - `data/processed/`: verarbeitete MapReduce-Ergebnisse
 - `src/api/`: API-Zugriffe
 - `src/db/`: MongoDB-Verbindung
@@ -84,8 +84,20 @@ MongoDB lauscht danach standardmäßig auf `localhost:27017`.
 
 ### Projekt starten
 
+Standardmaessig arbeitet der Einstiegspunkt jetzt **cache-first**. Das bedeutet:
+
+- `python -m src.main` verwendet vorhandene Dateien aus `data/raw/...` und uebertraegt sie bei Bedarf nach MongoDB
+- **keine neuen API-Abfragen**, solange bereits passende RAW-JSON-Dateien vorhanden sind
+- ein echter Datenrefresh erfolgt nur bewusst mit `--refresh`
+
 ```bash
 python -m src.main
+```
+
+Nur wenn wirklich neue Daten benoetigt werden:
+
+```bash
+python -m src.main --refresh
 ```
 
 ## Erwartetes Ergebnis
@@ -96,6 +108,8 @@ Nach dem Start:
 - verarbeitete MapReduce-JSON-Dateien in `data/processed/`
 - MongoDB-Datenbank `big_data_weather_airpollution`
 - Collections `weather_raw` und `air_quality_raw`
+
+Die Ordner unter `data/raw/` dienen als gemeinsamer Cache. Damit koennen Teammitglieder mit denselben RAW-Snapshots arbeiten, ohne historische API-Abfragen erneut auszufuehren.
 
 Die MapReduce-Verarbeitung ergänzt fehlende numerische Werte im Prozessschritt mit der Regel:
 

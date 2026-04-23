@@ -43,6 +43,30 @@ COMPARISON_CITIES = [
             "parameter": "pm25",
         },
     },
+    {
+        "name": "Phoenix",
+        "slug": "phoenix",
+        "timezone": "America/Phoenix",
+        "weather": {"lat": 33.4484, "lon": -112.0740},
+        "air_quality": {
+            "location_id": 605,
+            "location_name": "Phoenix JLG Supersit",
+            "sensor_id": 1065,
+            "parameter": "pm25",
+        },
+    },
+    {
+        "name": "Reykjavik",
+        "slug": "reykjavik",
+        "timezone": "Atlantic/Reykjavik",
+        "weather": {"lat": 64.1466, "lon": -21.9426},
+        "air_quality": {
+            "location_id": 10665,
+            "location_name": "Reykjavik Grensas",
+            "sensor_id": 35510,
+            "parameter": "pm25",
+        },
+    },
 ]
 
 

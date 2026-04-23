@@ -35,6 +35,8 @@ NOTEBOOK_COMPARISON_CITIES = [
     ("vienna", "Wien"),
     ("new-york", "New York"),
     ("new-delhi", "Neu Delhi"),
+    ("phoenix", "Phoenix"),
+    ("reykjavik", "Reykjavik"),
 ]
 
 
@@ -221,6 +223,16 @@ def _display_dataframe_table(title: str, records: list[dict], columns: list[str]
     display(HTML(table_html))
 
 
+def _format_wind_value(speed: float | None, direction_deg: float | int | None) -> str:
+    if speed is None:
+        return "null"
+
+    if direction_deg is None:
+        return f"{speed} m/s"
+
+    return f"{speed} m/s ({direction_deg}°)"
+
+
 def render_MapReduce_raw_table() -> None:
     from src.MapReduce import load_latest_raw_records
 
@@ -231,10 +243,12 @@ def render_MapReduce_raw_table() -> None:
             "Datum": record["date"],
             "Zeitpunkt": record["timestamp_local"],
             "Temperatur (°C)": record["temperature_c"],
+            "Wind": _format_wind_value(record["wind_speed"], record["wind_direction_deg"]),
             "Wetter": record["weather_description"] or "null",
             "Luftqualitaet": record["air_quality_value"],
             "Einheit": record["air_quality_unit"] or "null",
             "Fehlendes Wetter": "ja" if record["missing_weather"] else "nein",
+            "Fehlende Windgeschwindigkeit": "ja" if record["missing_wind_speed"] else "nein",
             "Fehlende Luftqualitaet": "ja" if record["missing_air_quality"] else "nein",
         }
         for record in raw_records
@@ -247,10 +261,12 @@ def render_MapReduce_raw_table() -> None:
             "Datum",
             "Zeitpunkt",
             "Temperatur (°C)",
+            "Wind",
             "Wetter",
             "Luftqualitaet",
             "Einheit",
             "Fehlendes Wetter",
+            "Fehlende Windgeschwindigkeit",
             "Fehlende Luftqualitaet",
         ],
     )
@@ -268,10 +284,12 @@ def render_MapReduce_processed_table(mapreduce_result: dict | None = None) -> No
             "Datum": record["date"],
             "Zeitpunkt": record["timestamp_local"],
             "Temperatur (°C)": record["processed_temperature_c"],
+            "Wind": _format_wind_value(record["processed_wind_speed"], record["wind_direction_deg"]),
             "Wetter": record["weather_description"] or "null",
             "Luftqualitaet": record["processed_air_quality_value"],
             "Einheit": record["air_quality_unit"] or "null",
             "Temperatur imputiert": "ja" if record["imputed_temperature"] else "nein",
+            "Wind imputiert": "ja" if record["imputed_wind_speed"] else "nein",
             "Luftqualitaet imputiert": "ja" if record["imputed_air_quality"] else "nein",
         }
         for record in mapreduce_result["processed_records"]
@@ -284,10 +302,12 @@ def render_MapReduce_processed_table(mapreduce_result: dict | None = None) -> No
             "Datum",
             "Zeitpunkt",
             "Temperatur (°C)",
+            "Wind",
             "Wetter",
             "Luftqualitaet",
             "Einheit",
             "Temperatur imputiert",
+            "Wind imputiert",
             "Luftqualitaet imputiert",
         ],
     )

@@ -2,5 +2,4 @@
 __pycache__/
 *.pyc
 .idea/
-data/raw/
-data/processed/h
+data/processed/
