@@ -1,16 +1,31 @@
 # big-data-weather-airpollution
 
-Projekt zum Sammeln, Speichern und späteren Auswerten von Wetter- und Luftqualitätsdaten.
+Projekt zum Sammeln, Zwischenspeichern, Speichern und Auswerten historischer Wetter- und Luftqualitätsdaten.
 
-## Struktur
+## Projektziel
 
-- `data/raw/`: gemeinsame rohe JSON-Snapshots als Cache fuer Wetter- und Luftqualitaetsdaten
-- `data/processed/`: verarbeitete MapReduce-Ergebnisse
-- `src/api/`: API-Zugriffe
-- `src/db/`: MongoDB-Verbindung
-- `src/MapReduce.py`: explizite MapReduce-Pipeline fuer die Auswertung
-- `src/storage/`: Speichern von JSON und MongoDB-Inserts
-- `src/main.py`: Einstiegspunkt
+Das Projekt vergleicht Wetter und Luftqualität für eine feste Jahresstichprobe:
+
+- **5 Städte**: Wien, New York, Neu Delhi, Phoenix, Reykjavik
+- **15 Zeitpunkte** pro Stadt
+- **Jahr 2025**
+- Zielzeitpunkt: **12:00 Uhr Ortszeit**
+
+Wetterdaten kommen von **OpenWeather Time Machine**, Luftqualitätsdaten von **OpenAQ v3** mit **PM2.5**.
+
+## Aktuelle Struktur
+
+| Pfad | Zweck |
+| --- | --- |
+| `data/raw/` | gemeinsame RAW-JSON-Snapshots als Cache |
+| `data/processed/` | erzeugte MapReduce-Ergebnisse |
+| `src/api/` | API-Zugriffe für Wetter und Luftqualität |
+| `src/db/` | MongoDB-Verbindung |
+| `src/storage/` | RAW-Cache- und Mongo-Helfer |
+| `src/MapReduce.py` | explizite MapReduce-Pipeline |
+| `src/comparison_config.py` | Städte, Sensoren, Zeitplan |
+| `src/main.py` | Einstiegspunkt für Cache-Sync oder Refresh |
+| `Jypiter Notebook - BigData Project.ipynb` | Dokumentation, Tabellen, Visualisierung |
 
 ## Setup
 
@@ -19,7 +34,7 @@ Projekt zum Sammeln, Speichern und späteren Auswerten von Wetter- und Luftquali
 - Python 3.10 oder neuer
 - Docker bzw. Docker Desktop
 - Git
-- optional: DataGrip / DataSpell
+- optional: DataSpell / DataGrip / Jupyter
 
 ### Python vorbereiten
 
@@ -39,36 +54,34 @@ pip install -r requirements.txt
 
 ### Environment-Datei anlegen
 
-Die Projektdatei `.env` ist absichtlich nicht versioniert. Lege sie aus der Vorlage an:
-
 ```bash
 cp .env.example .env
 ```
 
-Inhalt der Vorlage:
+Aktuelle Vorlage:
 
 ```env
 MONGO_URI=mongodb://localhost:27017/
 MONGO_DB=big_data_weather_airpollution
 
 WEATHER_API_KEY=
-WEATHER_USE_MOCK=true
-WEATHER_LAT=48.2082
-WEATHER_LON=16.3738
+WEATHER_USE_MOCK=
 WEATHER_UNITS=metric
 WEATHER_LANG=de
-WEATHER_EXCLUDE=minutely,alerts
 AIR_QUALITY_API_KEY=
-OPENAQ_LOCATION_ID=8118
 ```
 
-Für die Wetterdaten wird OpenWeather One Call 3.0 verwendet. Solange die Freischaltung fehlt, ist standardmaessig `WEATHER_USE_MOCK=true` aktiv und es werden kleine Testdaten fuer Wien geliefert. Sobald der echte Zugang verfuegbar ist, setze `WEATHER_USE_MOCK=false` und trage deinen OpenWeather-Key in `WEATHER_API_KEY` ein. Koordinaten und Ausgabe kannst du ueber `WEATHER_LAT`, `WEATHER_LON`, `WEATHER_UNITS`, `WEATHER_LANG` und `WEATHER_EXCLUDE` anpassen.
+Hinweise:
 
-Für die Luftqualitätsdaten wird OpenAQ v3 verwendet. Trage dafür deinen OpenAQ-API-Key in `AIR_QUALITY_API_KEY` ein. Standardmäßig wird die Location `8118` abgefragt; bei Bedarf kannst du sie über `OPENAQ_LOCATION_ID` ändern.
+- `WEATHER_API_KEY`: OpenWeather API-Key
+- `AIR_QUALITY_API_KEY`: OpenAQ API-Key
+- `WEATHER_USE_MOCK=true`: erzeugt Mock-Wetterdaten für alle konfigurierten Städte
+- `WEATHER_UNITS=metric`: Temperaturen in Celsius, Wind in m/s
+- `WEATHER_LANG=de`: deutsche Wetterbeschreibungen
 
-### MongoDB mit Docker starten
+Die Städte, Koordinaten und OpenAQ-Sensoren werden **nicht** über `.env`, sondern zentral in `src/comparison_config.py` gepflegt.
 
-Im Repository liegt jetzt eine `docker-compose.yml`, die MongoDB mit persistentem Volume startet:
+### MongoDB starten
 
 ```bash
 docker compose up -d mongodb
@@ -80,48 +93,141 @@ Status prüfen:
 docker compose ps
 ```
 
-MongoDB lauscht danach standardmäßig auf `localhost:27017`.
+MongoDB läuft danach standardmäßig unter:
 
-### Projekt starten
+```text
+mongodb://localhost:27017
+```
 
-Standardmaessig arbeitet der Einstiegspunkt jetzt **cache-first**. Das bedeutet:
+## Workflow: cache-first statt unnötiger API-Abfragen
 
-- `python -m src.main` verwendet vorhandene Dateien aus `data/raw/...` und uebertraegt sie bei Bedarf nach MongoDB
-- **keine neuen API-Abfragen**, solange bereits passende RAW-JSON-Dateien vorhanden sind
-- ein echter Datenrefresh erfolgt nur bewusst mit `--refresh`
+Das Projekt ist jetzt bewusst auf einen **Cache-First-Workflow** ausgelegt, damit historische Daten nicht immer wieder neu abgefragt werden.
+
+### Standardfall
 
 ```bash
 python -m src.main
 ```
 
-Nur wenn wirklich neue Daten benoetigt werden:
+Dieses Kommando:
+
+- verwendet vorhandene RAW-Dateien aus `data/raw/weather/` und `data/raw/air_quality/`
+- schreibt diese bei Bedarf nach MongoDB
+- erzeugt **keine neuen API-Abfragen**, solange ein RAW-Snapshot vorhanden ist
+
+### Nur wenn wirklich neue Daten gebraucht werden
 
 ```bash
 python -m src.main --refresh
 ```
 
-## Erwartetes Ergebnis
+Dieses Kommando:
 
-Nach dem Start:
+- ruft Wetter- und Luftqualitätsdaten erneut über die APIs ab
+- speichert einen neuen Snapshot in `data/raw/...`
+- schreibt den neuen Stand nach MongoDB
 
-- lokale JSON-Dateien in `data/raw/weather/` und `data/raw/air_quality/`
-- verarbeitete MapReduce-JSON-Dateien in `data/processed/`
-- MongoDB-Datenbank `big_data_weather_airpollution`
-- Collections `weather_raw` und `air_quality_raw`
+**Wichtig:** Wegen des API-Limits sollte `--refresh` nur bewusst und nur bei echtem Bedarf verwendet werden.
 
-Die Ordner unter `data/raw/` dienen als gemeinsamer Cache. Damit koennen Teammitglieder mit denselben RAW-Snapshots arbeiten, ohne historische API-Abfragen erneut auszufuehren.
+## Gemeinsame Arbeit im Team
 
-Die MapReduce-Verarbeitung ergänzt fehlende numerische Werte im Prozessschritt mit der Regel:
+Die Ordner unter `data/raw/` sind der gemeinsame Arbeitscache.
+
+Empfohlener Ablauf:
+
+1. Eine Person führt bei Bedarf einen bewussten Refresh aus.
+2. Das neue zusammengehörige Snapshot-Paar wird versioniert:
+   - `data/raw/weather/...`
+   - `data/raw/air_quality/...`
+3. Alle anderen arbeiten mit genau diesen RAW-Dateien weiter.
+4. `python -m src.main` synchronisiert den RAW-Stand lokal nach MongoDB, ohne neue API-Abfragen zu erzeugen.
+
+Für Git sollte in der Regel **nur das neueste passende Wetter-/Luftqualitäts-Paar** committed werden, nicht alle historischen Dumps.
+
+## Datenspeicherung
+
+Nach einem Lauf stehen die Daten an zwei Stellen:
+
+1. **RAW-JSON-Dateien**
+   - `data/raw/weather/`
+   - `data/raw/air_quality/`
+
+2. **MongoDB**
+   - Datenbank: `big_data_weather_airpollution`
+   - Collections:
+     - `weather_raw`
+     - `air_quality_raw`
+
+Wenn bereits identische Daten in MongoDB vorhanden sind, wird kein doppeltes Dokument geschrieben.
+
+## MapReduce
+
+Die sichtbare MapReduce-Implementierung liegt in:
 
 ```text
-fehlender Wert = Durchschnitt aus vorherigem und naechstem Zeitpunkt
+src/MapReduce.py
 ```
 
-Wenn MongoDB nicht läuft, bricht die Anwendung jetzt mit einer klaren Fehlermeldung ab und verweist auf:
+Die Pipeline:
+
+1. lädt RAW-Daten bevorzugt aus `data/raw/...`
+2. fällt bei Bedarf auf MongoDB zurück
+3. flacht Wetter- und Luftqualitätsdaten in gemeinsame Records ab
+4. ergänzt fehlende Werte
+5. reduziert auf Stadt-Zusammenfassungen
+6. speichert das Ergebnis in `data/processed/`
+
+### Aktuelle Vervollständigungsregeln
+
+- **Temperatur**: Durchschnitt aus vorherigem und nächstem Zeitpunkt
+- **Luftqualität (PM2.5)**: Durchschnitt aus vorherigem und nächstem Zeitpunkt
+- **Windgeschwindigkeit**: Jahresdurchschnitt der jeweiligen Stadt
+- **Windrichtung**: wird nicht imputiert
+
+### MapReduce-Ergebnis
+
+Die Pipeline erzeugt JSON-Dateien in:
+
+```text
+data/processed/
+```
+
+Zusätzlich werden Statistiken gespeichert, z. B.:
+
+- Anzahl der Rohdatensätze
+- Anzahl der Städte
+- fehlende Werte vor der Verarbeitung
+- Anzahl imputierter Werte
+- vollständige Temperatur-/Luftqualitäts-Paare vor und nach der Verarbeitung
+
+## Notebook
+
+Das Jupyter-Notebook dokumentiert den Projektablauf:
+
+- Setup und Environment
+- MongoDB-Verbindung
+- sicherer Start über `src.main`
+- RAW-Tabellen
+- sichtbare MapReduce-Ausführung
+- verarbeitete Tabellen
+- Visualisierung von Temperatur, PM2.5 und Wind
+
+Im Notebook ist beim `main`-Schritt jetzt ausdrücklich vermerkt:
+
+> **Achtung: Datenrefresh nur wenn dringend erforderlich!**
+
+## Projektstart in Kurzform
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
 docker compose up -d mongodb
+python -m src.main
 ```
+
+Danach kann das Notebook geöffnet werden, ohne zusätzliche API-Abfragen zu produzieren, solange mit dem vorhandenen RAW-Cache gearbeitet wird.
 
 ## MongoDB mit DataGrip verbinden
 
