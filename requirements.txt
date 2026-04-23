@@ -3,3 +3,5 @@ pymongo
 python-dotenv
 matplotlib
 pandas
+numpy
+ipython

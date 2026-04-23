@@ -234,6 +234,7 @@ def _format_wind_value(speed: float | None, direction_deg: float | int | None) -
 
 
 def render_MapReduce_raw_table() -> None:
+    from IPython.display import HTML, display
     from src.MapReduce import load_latest_raw_records
 
     raw_records, input_source = load_latest_raw_records()
